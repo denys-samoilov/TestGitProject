@@ -41,7 +41,7 @@ class ShopTree:
     # Пошук магазину
     def search(self, name):
         current = self.root
-        while current:
+        while current != None:
             if name == current.name:
                 return True
             elif name < current.name:
@@ -105,15 +105,13 @@ if __name__ == "__main__":
     tree = ShopTree()
     shops = ["Сільпо","АТБ", "Це Наше", "ВелМарт"]
 
-    print("Додавання магазинів:")
     for s in shops:
         tree.insert(s)
 
-    print("\nОбхід дерева (in-order):")
     tree.print_tree(tree.root)
 
 
-    print("\nПошук 'Фора':", "знайдено" if tree.search("Фора") else "не знайдено")
+    print("\nПошук 'Фора':", "знайдено" if tree.search("Сільпо") else "не знайдено")
     print("Пошук 'Копійка':", "знайдено" if tree.search("Копійка") else "не знайдено")
 
     print("\nВидалення 'Новус'...")
